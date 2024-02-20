@@ -14,20 +14,102 @@ public class Cup : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void SwitchPos(int animationType)
+    //MidToRight = animNum 0
+    //MidToLeft = animNum 1
+    //LeftToMid = animNum 2
+    //LeftToRight = animNum 3
+    //RightToLeft = animNum 4
+    //RightToMid = animNum 5
+
+    public void SwitchPos(int target)
     {
-        switch(animationType)
+        switch(target)
         {
-            case 0: // Slide positive on x axis
+            case 0: // TARGET LEFT
                 {
+                    switch (indexPos)
+                    {
+                        case 0: // SAMESIES
+                            {
+                                Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
+                                break;
+                            }
+                        case 1: // MID TO LEFT
+                            {
+                                animator.SetInteger("animNum", 1);
+                                animator.SetTrigger("advance");
+                                break;
+                            }
+                        case 2: // RIGHT TO LEFT
+                            {
+                                animator.SetInteger("animNum", 4);
+                                animator.SetTrigger("advance");
+                                break;
+                            }
+                        default: // help
+                            {
+                                Debug.Log("PANIK IN CASE 0 SWITCH STATEMENT IN SWITCHPOS IN CUP " + gameObject.name);
+                                break;
+                            }
+                    }
                     break;
                 }
-            case 1: // Slide negative on x axis
+            case 1: // TARGET MID
                 {
+                    switch (indexPos)
+                    {
+                        case 0: // LEFT TO MID
+                            {
+                                animator.SetInteger("animNum", 2);
+                                animator.SetTrigger("advance");
+                                break;
+                            }
+                        case 1: // SAMESIES
+                            {
+                                Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
+                                break;
+                            }
+                        case 2: // RIGHT TO MID
+                            {
+                                animator.SetInteger("animNum", 5);
+                                animator.SetTrigger("advance");
+                                break;
+                            }
+                        default: // dont do it
+                            {
+                                Debug.Log("PANIK IN CASE 1 SWITCH STATEMENT IN SWITCHPOS IN CUP " + gameObject.name);
+                                break;
+                            }
+                    }
                     break;
                 }
-            case 2: // Lifted on y axis
+            case 2: // TARGET RIGHT
                 {
+                    switch (indexPos)
+                    {
+                        case 0: // LEFT TO RIGHT 
+                            {
+                                animator.SetInteger("animNum", 3);
+                                animator.SetTrigger("advance");
+                                break;
+                            }
+                        case 1: // MID TO RIGHT
+                            {
+                                animator.SetInteger("animNum", 0);
+                                animator.SetTrigger("advance");
+                                break;
+                            }
+                        case 2: // SAMESIES
+                            {
+                                Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
+                                break;
+                            }
+                        default: // please dont run
+                            {
+                                Debug.Log("PANIK IN CASE 2 SWITCH STATEMENT IN SWITCHPOS IN CUP " + gameObject.name);
+                                break;
+                            }
+                    }
                     break;
                 }
             default: // if this runs im killing myself
