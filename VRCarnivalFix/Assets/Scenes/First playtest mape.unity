@@ -2824,7 +2824,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9c9ff9fee08674b4baa0e2700ff4c9f2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.751
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9c9ff9fee08674b4baa0e2700ff4c9f2,
         type: 3}
@@ -8475,13 +8475,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237187412}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.353341, y: 0.44559598, z: -0.767393, w: -0.29614598}
-  m_LocalPosition: {x: 0.008710313, y: 0.00062115863, z: 0.006790191}
-  m_LocalScale: {x: 1.822, y: 1.8219995, z: 1.8220003}
+  m_LocalRotation: {x: -0.00000018232751, y: -0.6087604, z: -0.00000016238072, w: 0.79335415}
+  m_LocalPosition: {x: 0.26902866, y: 0.006659031, z: 0.2789824}
+  m_LocalScale: {x: 1.8220001, y: 1.8219995, z: 1.822}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1685915644}
-  m_Father: {fileID: 5484234270566421122}
+  m_Father: {fileID: 1923808580}
   m_LocalEulerAnglesHint: {x: 0, y: -75, z: 0}
 --- !u!199 &1237187414
 ParticleSystemRenderer:
@@ -20957,7 +20957,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1237187413}
   m_Father: {fileID: 43670959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1923808581
@@ -23547,7 +23548,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1579241630799410176, guid: 9c9ff9fee08674b4baa0e2700ff4c9f2, type: 3}
 --- !u!114 &2139805413
@@ -29297,8 +29298,7 @@ Transform:
   m_LocalPosition: {x: 0.0056085316, y: 0.026278399, z: -3.8697578e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1237187413}
+  m_Children: []
   m_Father: {fileID: 1363619000549187735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5519201617199349411
