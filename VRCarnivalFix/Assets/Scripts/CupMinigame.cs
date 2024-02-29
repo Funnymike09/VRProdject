@@ -51,10 +51,12 @@ public class CupMinigame : MonoBehaviour
     public void CompletedAnimation() // ADD EVENT IN ANIMATION
     {
         gyatt++;
-        if (gyatt <= 3)
+        if (gyatt >= 3)
         {
+            Debug.Log("gyatt = 3");
             gyatt = 0;
             timesSwitched++;
+            speedMultiplier += speedIncrement;
 
             if (timesSwitched >= timesToSwitch)
             {

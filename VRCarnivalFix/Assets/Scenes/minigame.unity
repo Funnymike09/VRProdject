@@ -289,8 +289,8 @@ MonoBehaviour:
   ball: {fileID: 0}
   baseTransforms: []
   speedIncrement: 0.05
-  timesToSwitch: 10
-  timeBetweenSwitches: 1
+  timesToSwitch: 30
+  timeBetweenSwitches: 0.7
   gyatt: 0
 --- !u!4 &949900377
 Transform:

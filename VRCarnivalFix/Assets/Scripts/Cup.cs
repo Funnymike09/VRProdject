@@ -10,7 +10,7 @@ public class Cup : MonoBehaviour
     public Animator animator;
     private CupMinigame cupMinigame;
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         cupMinigame = FindObjectOfType<CupMinigame>();
@@ -33,6 +33,7 @@ public class Cup : MonoBehaviour
                     {
                         case 0: // SAMESIES
                             {
+                                UpdateCupMinigame();
                                 Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
                                 break;
                             }
@@ -68,6 +69,7 @@ public class Cup : MonoBehaviour
                             }
                         case 1: // SAMESIES
                             {
+                                UpdateCupMinigame();
                                 Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
                                 break;
                             }
@@ -103,6 +105,7 @@ public class Cup : MonoBehaviour
                             }
                         case 2: // SAMESIES
                             {
+                                UpdateCupMinigame();
                                 Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
                                 break;
                             }
