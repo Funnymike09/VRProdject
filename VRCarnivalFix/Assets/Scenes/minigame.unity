@@ -283,12 +283,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cups:
+  - {fileID: 1032118000}
   - {fileID: 458544681}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2012713624}
   ball: {fileID: 0}
   baseTransforms: []
-  speedMultiplier: 1
+  speedIncrement: 0.05
+  timesToSwitch: 10
+  timeBetweenSwitches: 1
+  gyatt: 0
 --- !u!4 &949900377
 Transform:
   m_ObjectHideFlags: 0
@@ -304,6 +307,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1032118000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3886865400276969471, guid: 06e22a2171e730c4eb74f7399764bf38,
+    type: 3}
+  m_PrefabInstance: {fileID: 1702459315}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bafeadd02b1f3342a069fff7d8d04ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1229299397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,6 +327,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3886865400276969471, guid: 06e22a2171e730c4eb74f7399764bf38,
+        type: 3}
+      propertyPath: indexPos
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4326720962879082386, guid: 06e22a2171e730c4eb74f7399764bf38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -365,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 4931075137908204585, guid: 06e22a2171e730c4eb74f7399764bf38,
         type: 3}
       propertyPath: m_Name
-      value: Cup (1)
+      value: Right Cup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -644,13 +664,25 @@ PrefabInstance:
     - target: {fileID: 4931075137908204585, guid: 06e22a2171e730c4eb74f7399764bf38,
         type: 3}
       propertyPath: m_Name
-      value: Cup (2)
+      value: Left Cup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e22a2171e730c4eb74f7399764bf38, type: 3}
+--- !u!114 &2012713624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3886865400276969471, guid: 06e22a2171e730c4eb74f7399764bf38,
+    type: 3}
+  m_PrefabInstance: {fileID: 1229299397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bafeadd02b1f3342a069fff7d8d04ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2039428901
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +828,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3886865400276969471, guid: 06e22a2171e730c4eb74f7399764bf38,
+        type: 3}
+      propertyPath: indexPos
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4326720962879082386, guid: 06e22a2171e730c4eb74f7399764bf38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -849,7 +886,7 @@ PrefabInstance:
     - target: {fileID: 4931075137908204585, guid: 06e22a2171e730c4eb74f7399764bf38,
         type: 3}
       propertyPath: m_Name
-      value: Cup
+      value: Middle Cup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -864,7 +901,7 @@ SceneRoots:
   - {fileID: 100349291}
   - {fileID: 1369579862}
   - {fileID: 1361188349}
+  - {fileID: 1702459315}
   - {fileID: 5964365548684064937}
   - {fileID: 1229299397}
-  - {fileID: 1702459315}
   - {fileID: 949900377}

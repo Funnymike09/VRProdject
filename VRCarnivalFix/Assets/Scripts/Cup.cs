@@ -8,10 +8,12 @@ public class Cup : MonoBehaviour
     [Tooltip("If this cup contains ball")]public bool correctCup;
     [Tooltip("From left to right, the order the cups are displayed")]public int indexPos;
     public Animator animator;
+    private CupMinigame cupMinigame;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        cupMinigame = FindObjectOfType<CupMinigame>();
     }
 
     //MidToRight = animNum 0
@@ -118,5 +120,15 @@ public class Cup : MonoBehaviour
                     break;
                 }
         }
+    }
+
+    private void UpdateCupMinigame()
+    {
+        cupMinigame.CompletedAnimation();
+    }
+
+    private void UpdateIndex(int currentIndex)
+    {
+        this.indexPos = currentIndex;
     }
 }

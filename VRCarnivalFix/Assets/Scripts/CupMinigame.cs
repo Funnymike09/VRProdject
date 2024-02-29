@@ -1,18 +1,24 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class CupMinigame : MonoBehaviour
 {
     [SerializeField] private Cup[] cups;
     [SerializeField] private GameObject ball;
     [Tooltip("The starting positions of the cups")][SerializeField] private Transform[] baseTransforms; // This should be able to scale exponentially
-    [SerializeField] private float speedMultiplier;
+    private float speedMultiplier;
     [SerializeField] private float speedIncrement;
     [SerializeField] private int timesToSwitch;
     private int timesSwitched;
+    [SerializeField] private float timeBetweenSwitches;
+    private bool finished;
 
     void Start()
     {
+        speedMultiplier = 1;
         baseTransforms = new Transform[cups.Length];
         for (int i = 0; i < cups.Length; i++)
         {
@@ -23,44 +29,75 @@ public class CupMinigame : MonoBehaviour
                 cups[i].correctCup = true;
             }
         }
-
-    }
-
-    void Update()
-    {
-        
+        SwitchCups();
     }
 
     void SwitchCups()
     {
-        int[] integers = new int[cups.Length];
-        for (int i = 0; i < integers.Length; i++)
+        if (!finished)
         {
-            integers[i] = Random.Range(0, 3);
-        }
-        for (int i = 0; i < cups.Length; i++)
-        {
-            cups[i].animator.SetFloat("speedMultiplier", speedMultiplier + speedIncrement);
-            cups[i].SwitchPos(integers[i]);
-        }
+            List<int> randomNums = GenerateOrder();
 
-        timesSwitched++;
-
-        if (timesSwitched >=  timesToSwitch)
-        {
-            // STOP ANIMATING, LET PLAYER CHOOSE
+            for (int i = 0; i < cups.Length; i++)
+            {
+                cups[i].animator.SetFloat("speedMultiplier", speedMultiplier + speedIncrement);
+                cups[i].SwitchPos(randomNums[i]);
+            }
         }
     }
 
     public int gyatt = 0;
 
-    void CompletedAnimation() // ADD EVENT IN ANIMATION
+    public void CompletedAnimation() // ADD EVENT IN ANIMATION
     {
         gyatt++;
         if (gyatt <= 3)
         {
             gyatt = 0;
-            SwitchCups();
+            timesSwitched++;
+
+            if (timesSwitched >= timesToSwitch)
+            {
+                Debug.Log("FINISHED");
+                finished = true;
+                // STOP ANIMATING, LET PLAYER CHOOSE
+            }
+
+            if (!finished)
+            {
+                StartCoroutine(WaitFor(timeBetweenSwitches));
+                SwitchCups();
+            }
         }
+    }
+
+    IEnumerator WaitFor(float secondsToWait)
+    {
+        yield return new WaitForSeconds(secondsToWait);
+    }
+
+    private List<int> GenerateOrder()
+    {
+        System.Random random = new System.Random();
+        HashSet<int> candidates = new HashSet<int>();
+        for (int i = 0; i < 3; i++)
+        {
+            if (!candidates.Add(random.Next(0, i + 1)))
+            {
+                candidates.Add(i);
+            }
+        }
+
+        List<int> result = candidates.ToList();
+
+        for (int i = 0; i < result.Count; i++)
+        {
+            int k = random.Next(i + 1);
+            int tmp = result[k];
+            result[k] = result[i];
+            result[i] = tmp;
+        }
+
+        return result;
     }
 }
