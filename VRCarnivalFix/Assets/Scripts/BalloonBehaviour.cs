@@ -11,16 +11,20 @@ public class BalloonBehaviour : MonoBehaviour
     public GameObject fingerPrefab;
     public Vector3 fingerSpawnPoint;
     
+    private AudioSource _popSound;
+    
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
+        _popSound = GetComponentInParent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Dart"))
         {
+            _popSound.Play();
             _balloonsPopped++;
             Debug.Log("Balloons popped: " + _balloonsPopped);
             if (_balloonsPopped == 3)
