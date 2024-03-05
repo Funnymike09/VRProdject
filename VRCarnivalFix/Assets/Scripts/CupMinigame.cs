@@ -9,7 +9,6 @@ public class CupMinigame : MonoBehaviour
 {
     [SerializeField] private Cup[] cups;
     [SerializeField] private GameObject ballPrefab;
-    [SerializeField] private GameObject thumbPrefab;
     [SerializeField] private GameObject button;
     [Tooltip("The starting positions of the cups")][SerializeField] private Transform[] baseTransforms; // This should be able to scale exponentially
     private float speedMultiplier;
@@ -19,12 +18,13 @@ public class CupMinigame : MonoBehaviour
     [SerializeField] private float timeBetweenSwitches;
     private bool finished;
     private GameObject ball;
-    private GameObject thumb;
+    [SerializeField] private GameObject thumb;
 
     void Start()
     {
         speedMultiplier = 1;
         baseTransforms = new Transform[cups.Length];
+        ball.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         for (int i = 0; i < cups.Length; i++)
         {
             baseTransforms[i] = cups[i].transform;
@@ -38,6 +38,18 @@ public class CupMinigame : MonoBehaviour
         }
         //StartMinigame(); // PROBABLY WANT THIS COMMENTED OUT IN THE FINAL BUILD
     }
+
+    /*private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            CorrectCupPicked();
+        }
+        else if(Input.GetKeyDown(KeyCode.S))
+        {
+            StartMinigame();
+        }
+    }*/
 
     private void SetBallPos(Vector3 cupPos)
     {
@@ -147,10 +159,11 @@ public class CupMinigame : MonoBehaviour
 
     public void CorrectCupPicked()
     {
-        Vector3 ballPos = ball.transform.position;
+        //Vector3 ballPos = ball.transform.position;
         Destroy(ball.gameObject);
-        thumb = Instantiate(thumbPrefab);
-        thumb.transform.position = ballPos;
+        //thumb = Instantiate(thumbPrefab);
+        //thumb.transform.position = ballPos;
+        thumb.SetActive(true);
         // WHATEVA THA FUCK BEHAVIOUR WE WANT HERE
     }
 
@@ -158,13 +171,14 @@ public class CupMinigame : MonoBehaviour
     {
         // SAME AS ABOVE
         StartCoroutine(WaitFor(2f));
-        for (int i = 0; i < 3; i++)
+        /*for (int i = 0; i < 3; i++)
         {
             if (cups[i].correctCup)
             {
                 cups[i].animator.SetTrigger("correctCupAdvance");
             }
-        }
+        }*/
+        // PLAY SAD MUSIC
         StartCoroutine(WaitFor(2f));
         ResetMinigame();
     }
@@ -175,6 +189,7 @@ public class CupMinigame : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             cups[i].transform.position = baseTransforms[i].position;
+            cups[i].UpdateIndex(i);
             if (cups[i].correctCup)
             {
                 SetBallPos(cups[i].transform.position);

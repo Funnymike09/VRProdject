@@ -136,7 +136,7 @@ public class Cup : MonoBehaviour
         cupMinigame.CompletedAnimation();
     }
 
-    private void UpdateIndex(int currentIndex)
+    public void UpdateIndex(int currentIndex)
     {
         this.indexPos = currentIndex;
     }
