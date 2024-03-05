@@ -19,6 +19,7 @@ public class CupMinigame : MonoBehaviour
     [SerializeField] private float timeBetweenSwitches;
     private bool finished;
     private GameObject ball;
+    private GameObject thumb;
 
     void Start()
     {
@@ -148,8 +149,8 @@ public class CupMinigame : MonoBehaviour
     {
         Vector3 ballPos = ball.transform.position;
         Destroy(ball.gameObject);
-        ball = Instantiate(thumbPrefab);
-        SetBallPos(ballPos);
+        thumb = Instantiate(thumbPrefab);
+        thumb.transform.position = ballPos;
         // WHATEVA THA FUCK BEHAVIOUR WE WANT HERE
     }
 
