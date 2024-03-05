@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(Animator))]
 public class Cup : MonoBehaviour
@@ -9,11 +10,16 @@ public class Cup : MonoBehaviour
     [Tooltip("From left to right, the order the cups are displayed")]public int indexPos;
     public Animator animator;
     private CupMinigame cupMinigame;
+    [HideInInspector] public XRGrabInteractable grabInteractable;
+    //public bool canBePicked;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         cupMinigame = FindObjectOfType<CupMinigame>();
+        grabInteractable = GetComponent<XRGrabInteractable>();
+        grabInteractable.enabled = false;
+        //canBePicked = false;
     }
 
     //MidToRight = animNum 0
@@ -34,7 +40,7 @@ public class Cup : MonoBehaviour
                         case 0: // SAMESIES
                             {
                                 UpdateCupMinigame();
-                                Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
+                                //Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
                                 break;
                             }
                         case 1: // MID TO LEFT
@@ -70,7 +76,7 @@ public class Cup : MonoBehaviour
                         case 1: // SAMESIES
                             {
                                 UpdateCupMinigame();
-                                Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
+                                //Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
                                 break;
                             }
                         case 2: // RIGHT TO MID
@@ -106,7 +112,7 @@ public class Cup : MonoBehaviour
                         case 2: // SAMESIES
                             {
                                 UpdateCupMinigame();
-                                Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
+                                //Debug.Log("TARGET AND INDEX THE SAME IN CUP " + gameObject.name);
                                 break;
                             }
                         default: // please dont run
@@ -133,5 +139,22 @@ public class Cup : MonoBehaviour
     private void UpdateIndex(int currentIndex)
     {
         this.indexPos = currentIndex;
+    }
+
+    public void PickCup()
+    {
+        if (this.correctCup)
+        {
+            cupMinigame.CorrectCupPicked();
+        }
+        else
+        {
+            cupMinigame.IncorrectCupPicked();
+        }
+    }
+
+    private void StartSwitching()
+    {
+        cupMinigame.SwitchCups();
     }
 }
