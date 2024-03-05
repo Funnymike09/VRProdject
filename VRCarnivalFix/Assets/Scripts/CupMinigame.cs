@@ -24,7 +24,7 @@ public class CupMinigame : MonoBehaviour
     {
         speedMultiplier = 1;
         baseTransforms = new Transform[cups.Length];
-        ball.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        //ball.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         for (int i = 0; i < cups.Length; i++)
         {
             baseTransforms[i] = cups[i].transform;
@@ -98,7 +98,6 @@ public class CupMinigame : MonoBehaviour
                     if (cups[i].correctCup)
                     {
                         SetBallPos(cups[i].transform.position);
-                        i = 3;
                     }
                 }
                 // STOP ANIMATING, LET PLAYER CHOOSE
@@ -179,7 +178,6 @@ public class CupMinigame : MonoBehaviour
             }
         }*/
         // PLAY SAD MUSIC
-        StartCoroutine(WaitFor(2f));
         ResetMinigame();
     }
 
