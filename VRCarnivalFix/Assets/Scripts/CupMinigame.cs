@@ -32,7 +32,7 @@ public class CupMinigame : MonoBehaviour
                 cups[i].correctCup = true;
             }
         }
-        StartMinigame(); // PROBABLY WANT THIS COMMENTED OUT IN THE FINAL BUILD
+        //StartMinigame(); // PROBABLY WANT THIS COMMENTED OUT IN THE FINAL BUILD
     }
 
     private void SetBallPos(Vector3 cupPos)
