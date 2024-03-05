@@ -19,6 +19,6 @@ public class DartBehaviour : MonoBehaviour
     public void ThrowDart()
     {
         gameObject.transform.rotation = Quaternion.Euler(0, 90, -180);
-        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.left * 250, ForceMode.Force);
+        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.right * 250, ForceMode.Force);
     }
 }
