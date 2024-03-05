@@ -3,11 +3,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 public class CupMinigame : MonoBehaviour
 {
     [SerializeField] private Cup[] cups;
     [SerializeField] private GameObject ballPrefab;
+    [SerializeField] private GameObject thumbPrefab;
+    [SerializeField] private GameObject button;
     [Tooltip("The starting positions of the cups")][SerializeField] private Transform[] baseTransforms; // This should be able to scale exponentially
     private float speedMultiplier;
     [SerializeField] private float speedIncrement;
@@ -60,7 +63,7 @@ public class CupMinigame : MonoBehaviour
         }
     }
 
-    public int gyatt = 0;
+    [HideInInspector] public int gyatt = 0;
 
     public void CompletedAnimation() // ADD EVENT IN ANIMATION
     {
@@ -143,24 +146,43 @@ public class CupMinigame : MonoBehaviour
 
     public void CorrectCupPicked()
     {
+        Vector3 ballPos = ball.transform.position;
+        Destroy(ball.gameObject);
+        ball = Instantiate(thumbPrefab);
+        SetBallPos(ballPos);
         // WHATEVA THA FUCK BEHAVIOUR WE WANT HERE
     }
 
     public void IncorrectCupPicked()
     {
+        // SAME AS ABOVE
         StartCoroutine(WaitFor(2f));
         for (int i = 0; i < 3; i++)
         {
             if (cups[i].correctCup)
             {
-
+                cups[i].animator.SetTrigger("correctCupAdvance");
             }
         }
-        // SAME AS ABOVE
+        StartCoroutine(WaitFor(2f));
+        ResetMinigame();
     }
 
     public void ResetMinigame()
     {
-
+        button.SetActive(true);
+        for (int i = 0; i < 3; i++)
+        {
+            cups[i].transform.position = baseTransforms[i].position;
+            if (cups[i].correctCup)
+            {
+                SetBallPos(cups[i].transform.position);
+            }
+        }
+        ball.SetActive(true);
+        gyatt = 0;
+        speedMultiplier = 1;
+        timesSwitched = 0;
+        finished = false;
     }
 }
