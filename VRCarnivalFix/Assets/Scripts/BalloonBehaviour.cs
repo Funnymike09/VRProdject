@@ -9,7 +9,7 @@ public class BalloonBehaviour : MonoBehaviour
     private static int _balloonsPopped = 0;
 
     public GameObject fingerPrefab;
-    public Vector3 fingerSpawnPoint;
+    public Transform fingerSpawnPoint;
     
     private AudioSource _popSound;
     
@@ -18,6 +18,7 @@ public class BalloonBehaviour : MonoBehaviour
     {
         GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
         _popSound = GetComponentInParent<AudioSource>();
+        fingerPrefab = Resources.Load<GameObject>("Prefabs/FingerPrefab");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,10 +28,10 @@ public class BalloonBehaviour : MonoBehaviour
             _popSound.Play();
             _balloonsPopped++;
             Debug.Log("Balloons popped: " + _balloonsPopped);
-            if (_balloonsPopped == 3)
+            if (_balloonsPopped == 5)
             {
                 Debug.Log("FINGER SPAWNED");
-                var finger = Instantiate(fingerPrefab, fingerSpawnPoint, Quaternion.identity);
+                var finger = Instantiate(fingerPrefab, fingerSpawnPoint);
             }
             Destroy(gameObject);
         }
@@ -40,6 +41,6 @@ public class BalloonBehaviour : MonoBehaviour
     {
         if (!Input.GetKeyDown(KeyCode.Space)) return;
         Debug.Log("FINGER SPAWNED");
-        var finger = Instantiate(fingerPrefab, fingerSpawnPoint, Quaternion.identity);
+        var finger = Instantiate(fingerPrefab, fingerSpawnPoint);
     }
 }

@@ -6,9 +6,6 @@ public class DartBehaviour : MonoBehaviour
 {
 
     private Transform startPosition;
-
-    private IEnumerator _resetDart;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +22,7 @@ public class DartBehaviour : MonoBehaviour
     {
         gameObject.transform.rotation = Quaternion.Euler(0, 90, -180);
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.right * 250, ForceMode.Force);
-        _resetDart = ResetDart();
+        ResetDart();
     }
     
     IEnumerator ResetDart()
