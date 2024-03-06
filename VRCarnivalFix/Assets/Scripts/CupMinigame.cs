@@ -3,11 +3,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 public class CupMinigame : MonoBehaviour
 {
     [SerializeField] private Cup[] cups;
     [SerializeField] private GameObject ballPrefab;
+    [SerializeField] private GameObject button;
     [Tooltip("The starting positions of the cups")][SerializeField] private Transform[] baseTransforms; // This should be able to scale exponentially
     private float speedMultiplier;
     [SerializeField] private float speedIncrement;
@@ -16,11 +18,13 @@ public class CupMinigame : MonoBehaviour
     [SerializeField] private float timeBetweenSwitches;
     private bool finished;
     private GameObject ball;
+    [SerializeField] private GameObject thumb;
 
     void Start()
     {
         speedMultiplier = 1;
         baseTransforms = new Transform[cups.Length];
+        //ball.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         for (int i = 0; i < cups.Length; i++)
         {
             baseTransforms[i] = cups[i].transform;
@@ -34,6 +38,18 @@ public class CupMinigame : MonoBehaviour
         }
         //StartMinigame(); // PROBABLY WANT THIS COMMENTED OUT IN THE FINAL BUILD
     }
+
+    /*private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            CorrectCupPicked();
+        }
+        else if(Input.GetKeyDown(KeyCode.S))
+        {
+            StartMinigame();
+        }
+    }*/
 
     private void SetBallPos(Vector3 cupPos)
     {
@@ -60,7 +76,7 @@ public class CupMinigame : MonoBehaviour
         }
     }
 
-    public int gyatt = 0;
+    [HideInInspector] public int gyatt = 0;
 
     public void CompletedAnimation() // ADD EVENT IN ANIMATION
     {
@@ -82,7 +98,6 @@ public class CupMinigame : MonoBehaviour
                     if (cups[i].correctCup)
                     {
                         SetBallPos(cups[i].transform.position);
-                        i = 3;
                     }
                 }
                 // STOP ANIMATING, LET PLAYER CHOOSE
@@ -143,24 +158,45 @@ public class CupMinigame : MonoBehaviour
 
     public void CorrectCupPicked()
     {
+        //Vector3 ballPos = ball.transform.position;
+        Destroy(ball.gameObject);
+        //thumb = Instantiate(thumbPrefab);
+        //thumb.transform.position = ballPos;
+        thumb.SetActive(true);
         // WHATEVA THA FUCK BEHAVIOUR WE WANT HERE
     }
 
     public void IncorrectCupPicked()
     {
+        // SAME AS ABOVE
         StartCoroutine(WaitFor(2f));
-        for (int i = 0; i < 3; i++)
+        /*for (int i = 0; i < 3; i++)
         {
             if (cups[i].correctCup)
             {
-
+                cups[i].animator.SetTrigger("correctCupAdvance");
             }
-        }
-        // SAME AS ABOVE
+        }*/
+        // PLAY SAD MUSIC
+        ResetMinigame();
     }
 
     public void ResetMinigame()
     {
-
+        button.SetActive(true);
+        for (int i = 0; i < 3; i++)
+        {
+            cups[i].transform.position = baseTransforms[i].position;
+            cups[i].UpdateIndex(i);
+            if (cups[i].correctCup)
+            {
+                SetBallPos(cups[i].transform.position);
+            }
+        }
+        ball.SetActive(true);
+        gyatt = 0;
+        speedMultiplier = 1;
+        timesSwitched = 0;
+        finished = false;
     }
 }
