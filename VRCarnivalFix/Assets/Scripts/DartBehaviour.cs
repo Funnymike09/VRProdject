@@ -12,26 +12,22 @@ public class DartBehaviour : MonoBehaviour
         startPosition = gameObject.transform;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ThrowDart()
     {
         gameObject.transform.rotation = Quaternion.Euler(0, 90, -180);
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.right * 250, ForceMode.Force);
-        ResetDart();
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
+        Invoke("ResetDart", 3.0f);
     }
     
     IEnumerator ResetDart()
     {
-        yield return new WaitForSeconds(3);
         var o = gameObject;
         o.transform.position = startPosition.position;
         o.transform.rotation = startPosition.rotation;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        gameObject.GetComponent<Rigidbody>().useGravity = true;
+        yield return null;
     }
 }
