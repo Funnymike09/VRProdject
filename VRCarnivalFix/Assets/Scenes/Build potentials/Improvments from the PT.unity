@@ -25287,12 +25287,6 @@ PrefabInstance:
       propertyPath: m_IgnoreTrackingState
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7979919025660001590, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
-        type: 3}
-      propertyPath: m_PositionAction.m_Reference
-      value: 
-      objectReference: {fileID: -7813013294023911475, guid: c348712bda248c246b8c49b3db54643f,
-        type: 3}
     - target: {fileID: 8422324403669820796, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_InteractionManager
