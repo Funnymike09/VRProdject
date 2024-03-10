@@ -5504,6 +5504,78 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &501957972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5089045582057578609, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1774353122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &501957977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8380703221476083521, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1774353122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &501957978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501957972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 501957977}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &502157796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9014170785475729474, guid: 895f6f3c2d334633b5800312285058d2,
@@ -8039,7 +8111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 832575519}
   - component: {fileID: 832575518}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Global Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26202,6 +26274,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0922
       objectReference: {fileID: 0}
+    - target: {fileID: 5089045582057578609, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5594196344576863553, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_Enabled
@@ -26318,6 +26395,36 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.015
       objectReference: {fileID: 0}
+    - target: {fileID: 8704996337171240191, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+        type: 3}
+      propertyPath: m_Antialiasing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704996337171240191, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+        type: 3}
+      propertyPath: m_RenderShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704996337171240191, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+        type: 3}
+      propertyPath: m_RendererIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704996337171240191, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+        type: 3}
+      propertyPath: m_VolumeTrigger
+      value: 
+      objectReference: {fileID: 832575519}
+    - target: {fileID: 8704996337171240191, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704996337171240191, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+        type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8797256355121924634, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_Enabled
@@ -26348,6 +26455,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1237187413}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5089045582057578609, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 501957978}
     - targetCorrespondingSourceObject: {fileID: 89209706955892192, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       insertIndex: -1
@@ -27383,6 +27494,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9813c68d7d6f44282ace8bd2d1fd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UseOptimizedControls: 0
+  m_LeftHandMesh: {fileID: 0}
+  m_RightHandMesh: {fileID: 0}
+  m_HandMeshMaterial: {fileID: 0}
+  m_DrawMeshes: 0
+  m_DebugDrawPrefab: {fileID: 0}
+  m_DebugDrawJoints: 0
+  m_VelocityPrefab: {fileID: 0}
+  m_VelocityType: 0
 --- !u!1 &1935285558
 GameObject:
   m_ObjectHideFlags: 0
