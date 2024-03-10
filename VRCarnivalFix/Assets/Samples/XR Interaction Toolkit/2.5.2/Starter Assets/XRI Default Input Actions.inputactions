@@ -409,6 +409,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Finger pos",
+                    "type": "Value",
+                    "id": "23484449-32ce-4f3e-b542-29d6d2f6b6ad",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Poke Position",
                     "type": "Value",
                     "id": "4c557d81-3795-4355-a83e-6f886221d011",
@@ -674,6 +683,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Grip Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90f33233-25e4-4f16-85d5-f7f928e7350a",
+                    "path": "<XRHandDevice>{LeftHand}/pinchPosition",
+                    "interactions": "",
+                    "processors": "ScaleVector3",
+                    "groups": "Generic XR Controller",
+                    "action": "Finger pos",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
