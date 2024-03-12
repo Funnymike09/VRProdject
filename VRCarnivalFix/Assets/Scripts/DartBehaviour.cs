@@ -5,22 +5,46 @@ using UnityEngine;
 public class DartBehaviour : MonoBehaviour
 {
 
-    private Transform startPosition;
+    private Vector3 startPosition;
+    private Quaternion startRotation;
+
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        startPosition = transform;
+        rb = GetComponent<Rigidbody>();
+        startPosition = transform.position;
+        startRotation = transform.rotation;
+    }
+
+    void Update() 
+    {
+        if(Input.GetKeyDown(KeyCode.Tab)) 
+        {
+            ThrowDart();
+        }
     }
 
     public void ThrowDart()
     {
-        StartCoroutine("ResetDart");
+        Invoke("ResetDart", 3.0f);
     }
     
     IEnumerator ResetDart()
     {
-        yield return new WaitForSeconds(3);
-        transform.position = startPosition.position;
-        transform.rotation = startPosition.rotation;
+        print("balls");
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+        rb.useGravity = true;
+        print("balls2");
+        return null;
+    }
+
+    void OnCollisionEnter(Collision other) 
+    {
+        if(other.gameObject.CompareTag("Wall")) 
+        {
+            rb.useGravity = false;
+        }
     }
 }
