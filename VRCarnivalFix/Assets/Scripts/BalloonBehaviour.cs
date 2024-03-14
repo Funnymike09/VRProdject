@@ -11,14 +11,18 @@ public class BalloonBehaviour : MonoBehaviour
     public GameObject fingerPrefab;
     public Transform fingerSpawnPoint;
     
-    private AudioSource _popSound;
+    [SerializeField] private AudioSource _popSound;
+    [SerializeField] private AudioSource _winSound;
+
+    public ParticleSystem particle;
+
     
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
-        _popSound = GetComponentInParent<AudioSource>();
         fingerPrefab = Resources.Load<GameObject>("Prefabs/FingerPrefab");
+        _popSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,6 +36,8 @@ public class BalloonBehaviour : MonoBehaviour
             {
                 Debug.Log("FINGER SPAWNED");
                 var finger = Instantiate(fingerPrefab, fingerSpawnPoint);
+                _winSound.Play();
+                particle.Play();
             }
             Destroy(gameObject);
         }
