@@ -19,6 +19,9 @@ public class CupMinigame : MonoBehaviour
     private bool finished;
     private GameObject ball;
     [SerializeField] private GameObject thumb;
+    private int timesBeaten;
+    [Tooltip("Between successful games, speedIncrement will increase by this number")][SerializeField] private float betweenGameIncrement;
+    [Tooltip("Between successful games, timesToSwitch will increase by this number")][SerializeField] private int betweenGameSwitch;
 
     void Start()
     {
@@ -164,6 +167,7 @@ public class CupMinigame : MonoBehaviour
         //thumb.transform.position = ballPos;
         thumb.SetActive(true);
         // WHATEVA THA FUCK BEHAVIOUR WE WANT HERE
+        ResetMinigame(true);
     }
 
     public void IncorrectCupPicked()
@@ -178,11 +182,20 @@ public class CupMinigame : MonoBehaviour
             }
         }*/
         // PLAY SAD MUSIC
-        ResetMinigame();
+        ResetMinigame(false);
     }
 
-    public void ResetMinigame()
+    public void ResetMinigame(bool correctCup)
     {
+        if (correctCup)
+        {
+            timesBeaten++;
+            if (timesBeaten < 3)
+            {
+                speedIncrement += betweenGameIncrement;
+                timesToSwitch += betweenGameSwitch;
+            }
+        }
         button.SetActive(true);
         for (int i = 0; i < 3; i++)
         {
