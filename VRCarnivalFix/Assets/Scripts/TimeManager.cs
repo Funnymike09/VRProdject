@@ -7,33 +7,41 @@ using UnityEngine.Events;
 
 public class TimeManager : MonoBehaviour
 {
-
     [Header("Timer")]
-    [SerializeField] private float countdown;
+    [SerializeField] private float originalCountdown;
     [SerializeField] TextMeshProUGUI timeText;
 
+    private float countdown;
     private bool disableTimer;
 
     public GameObject disableTimerObject;
 
     void Start()
     {
+        countdown = originalCountdown;
         disableTimer = true;
+        UpdateGameTimer();
     }
 
     void Update()
     {
-        if(disableTimer)
+        if (disableTimer)
         {
-        UpdateGameTimer();
+            UpdateGameTimer();
         }
-
         CheckTime();
     }
 
     private void UpdateGameTimer()
     {
-        countdown -= Time.deltaTime;
+        if (countdown > 0)
+        {
+            countdown -= Time.deltaTime;
+        }
+        else
+        {
+            countdown = 0;
+        }
 
         var minutes = Mathf.FloorToInt(countdown / 60);
         var seconds = Mathf.FloorToInt(countdown - minutes * 60);
@@ -41,16 +49,21 @@ public class TimeManager : MonoBehaviour
         string gameTimeClockDisplay = string.Format("{0:0}:{1:00}", minutes, seconds);
 
         timeText.text = gameTimeClockDisplay;
-
     }
 
     private void CheckTime()
     {
-        if(countdown <= 0)
+        if (countdown <= 0)
         {
             disableTimer = false;
-
             disableTimerObject.SetActive(false);
         }
+    }
+
+    public void ResetTimer()
+    {
+        countdown = originalCountdown;
+        disableTimer = true;
+        UpdateGameTimer();
     }
 }

@@ -27655,7 +27655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1936798055}
   m_Layer: 0
-  m_Name: Screens
+  m_Name: clock,canvas',detection shit -----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29217,7 +29217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf247def0fc6f9842aa2de2bc6ac6ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdown: 5
+  originalCountdown: 5
   timeText: {fileID: 1487175090}
   disableTimerObject: {fileID: 711929193}
 --- !u!1 &2014337083
