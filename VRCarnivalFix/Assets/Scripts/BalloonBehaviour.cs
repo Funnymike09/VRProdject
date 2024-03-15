@@ -16,7 +16,6 @@ public class BalloonBehaviour : MonoBehaviour
 
     public ParticleSystem particle;
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -48,5 +47,7 @@ public class BalloonBehaviour : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.Space)) return;
         Debug.Log("FINGER SPAWNED");
         var finger = Instantiate(fingerPrefab, fingerSpawnPoint);
+        _winSound.Play();
+        particle.Play();
     }
 }

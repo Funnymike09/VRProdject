@@ -22,7 +22,7 @@ public class FingerRemoveTest : MonoBehaviour
         {
             foreach (GameObject fingers in leftFingers)
             {
-                fingers.GetComponent<SkinnedMeshRenderer>().enabled = false;
+                //fingers.GetComponent<SkinnedMeshRenderer>().enabled = false;
             }
         }
     }
