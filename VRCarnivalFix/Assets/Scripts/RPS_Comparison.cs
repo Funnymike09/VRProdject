@@ -9,6 +9,7 @@ public class RPS_Comparison : MonoBehaviour
 
     public GameObject WinnersQ;
     public GameObject lostxd;
+    public GameObject ButtonRetry;
 
     public float comparisonDelay = 1f;
 
@@ -53,6 +54,7 @@ public class RPS_Comparison : MonoBehaviour
             if (lostxd != null)
             {
                 lostxd.SetActive(false);
+                ButtonRetry.SetActive(true);
             }
         }
     }
