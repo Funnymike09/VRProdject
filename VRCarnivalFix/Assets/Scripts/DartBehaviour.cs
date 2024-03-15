@@ -34,7 +34,7 @@ public class DartBehaviour : MonoBehaviour
         print("balls");
         transform.position = startPosition;
         transform.rotation = startRotation;
-        rb.isKinematic = true;
+        rb.isKinematic = false;
         print("balls2");
         return null;
     }
@@ -43,7 +43,7 @@ public class DartBehaviour : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Wall")) 
         {
-            rb.isKinematic = false;
+            rb.isKinematic = true;
         }
     }
 }
