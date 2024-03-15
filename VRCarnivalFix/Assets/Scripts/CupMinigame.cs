@@ -22,6 +22,7 @@ public class CupMinigame : MonoBehaviour
     private int timesBeaten;
     [Tooltip("Between successful games, speedIncrement will increase by this number")][SerializeField] private float betweenGameIncrement;
     [Tooltip("Between successful games, timesToSwitch will increase by this number")][SerializeField] private int betweenGameSwitch;
+    [SerializeField] private bool debugStart;
 
     void Start()
     {
@@ -38,6 +39,11 @@ public class CupMinigame : MonoBehaviour
                 SetBallPos(cups[i].transform.position);
                 cups[i].correctCup = true;
             }
+        }
+
+        if (debugStart)
+        {
+            StartMinigame();
         }
         //StartMinigame(); // PROBABLY WANT THIS COMMENTED OUT IN THE FINAL BUILD
     }
