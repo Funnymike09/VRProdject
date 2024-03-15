@@ -7,7 +7,6 @@ public class DartBehaviour : MonoBehaviour
 
     private Vector3 startPosition;
     private Quaternion startRotation;
-
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -35,7 +34,7 @@ public class DartBehaviour : MonoBehaviour
         print("balls");
         transform.position = startPosition;
         transform.rotation = startRotation;
-        rb.useGravity = true;
+        rb.isKinematic = true;
         print("balls2");
         return null;
     }
@@ -44,7 +43,7 @@ public class DartBehaviour : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Wall")) 
         {
-            rb.useGravity = false;
+            rb.isKinematic = false;
         }
     }
 }
