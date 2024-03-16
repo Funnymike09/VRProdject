@@ -43003,6 +43003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762990100}
   - component: {fileID: 1762990101}
+  - component: {fileID: 1762990102}
   m_Layer: 7
   m_Name: RPS Activation
   m_TagString: Untagged
@@ -43038,9 +43039,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf247def0fc6f9842aa2de2bc6ac6ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalCountdown: 60
+  originalCountdown: 90
   timeText: {fileID: 1929906221}
   disableTimerObject: {fileID: 2010950994}
+--- !u!114 &1762990102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762990099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5efc02d8a1879b42b8b6e29dd17901f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectActive:
+  - {fileID: 843311612}
+  - {fileID: 630937451}
+  - {fileID: 1091184287}
 --- !u!1 &1765428270
 GameObject:
   m_ObjectHideFlags: 0
@@ -43781,7 +43798,7 @@ PrefabInstance:
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.345
+      value: -4.909
       objectReference: {fileID: 0}
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
@@ -43791,27 +43808,27 @@ PrefabInstance:
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.34
+      value: 8.689
       objectReference: {fileID: 0}
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.70710784
       objectReference: {fileID: 0}
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.70710576
       objectReference: {fileID: 0}
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
@@ -43821,7 +43838,7 @@ PrefabInstance:
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 5945428912581520757, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
@@ -49774,8 +49791,8 @@ Transform:
   m_GameObject: {fileID: 2133829065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.22, z: 0}
-  m_LocalScale: {x: 5.3045, y: 5.3045, z: 5.3045}
+  m_LocalPosition: {x: -2.69, y: -0.22, z: 7.85}
+  m_LocalScale: {x: 1.4097869, y: 5.0590153, z: 1.7200145}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -50481,7 +50498,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2144302068}
   - component: {fileID: 2144302071}
-  - component: {fileID: 2144302070}
   - component: {fileID: 2144302069}
   m_Layer: 0
   m_Name: Detection+Logic+Animation Script
@@ -50530,22 +50546,6 @@ MonoBehaviour:
   - RockBent
   - PaperBendy
   - ScissorsBendy2
---- !u!114 &2144302070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144302067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5efc02d8a1879b42b8b6e29dd17901f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjectActive:
-  - {fileID: 843311612}
-  - {fileID: 630937451}
-  - {fileID: 1091184287}
 --- !u!114 &2144302071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50566,7 +50566,7 @@ MonoBehaviour:
   - {fileID: 843311612}
   - {fileID: 630937451}
   - {fileID: 1091184287}
-  WinnersQ: {fileID: 1455362338}
+  WinnersQ: {fileID: 2004471634}
   lostxd: {fileID: 1762990099}
   ButtonRetry: {fileID: 2052310235}
   comparisonDelay: 5

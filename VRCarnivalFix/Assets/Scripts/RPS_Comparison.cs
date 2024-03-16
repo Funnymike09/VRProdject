@@ -13,7 +13,7 @@ public class RPS_Comparison : MonoBehaviour
 
     public float comparisonDelay = 1f;
 
-    void Start()
+    void OnEnable()
     {
         StartCoroutine(CompareSetsWithDelay());
     }

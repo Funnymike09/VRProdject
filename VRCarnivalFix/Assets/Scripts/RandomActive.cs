@@ -6,7 +6,7 @@ public class RandomActive : MonoBehaviour
 {
     public GameObject[] gameObjectActive;
 
-    void Start()
+    private void OnEnable()
     {
         int randomIndex = Random.Range(0, gameObjectActive.Length);
 
@@ -21,3 +21,5 @@ public class RandomActive : MonoBehaviour
         }
     }
 }
+
+
