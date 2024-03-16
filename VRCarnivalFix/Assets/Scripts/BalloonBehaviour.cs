@@ -16,6 +16,8 @@ public class BalloonBehaviour : MonoBehaviour
 
     public ParticleSystem particle;
 
+    public bool dartMinigameWon = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,7 @@ public class BalloonBehaviour : MonoBehaviour
                 var finger = Instantiate(fingerPrefab, fingerSpawnPoint);
                 _winSound.Play();
                 particle.Play();
+                dartMinigameWon = true;
             }
             Destroy(gameObject);
             

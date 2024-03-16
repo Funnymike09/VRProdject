@@ -16533,6 +16533,7 @@ MonoBehaviour:
   fingerSpawnPoint: {fileID: 10206010}
   particle: {fileID: 297849810}
   winAudio: {fileID: 404876740}
+  rpsMinigameWon: 0
 --- !u!82 &404876740
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20906,12 +20907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a9a99d12964334cad4c3c94bc07009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 637257191226939182, guid: 72aad3791c1b12644ae152b30a7597c8, type: 3}
-  - {fileID: 8683792763280658711, guid: 30f5e07de06430948b8d78f69c7c8a74, type: 3}
-  - {fileID: 8545470681046246302, guid: 21bef02fffcb8d64bacb40da2cee16a9, type: 3}
-  spawnedObject: {fileID: 0}
-  position: {x: 0, y: 0, z: 0}
 --- !u!114 &812284621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22046,6 +22041,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1283976689}
   m_SourcePrefab: {fileID: 100100000, guid: fd89b311ccd9b5d42b2f56d4f4ceaa39, type: 3}
+--- !u!114 &887967558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7713174375041944596, guid: fd89b311ccd9b5d42b2f56d4f4ceaa39,
+    type: 3}
+  m_PrefabInstance: {fileID: 887967557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18548572d474a7747b7043d124145ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &888616720
 GameObject:
   m_ObjectHideFlags: 0
@@ -34578,6 +34585,12 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &1341752119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7677471772335586173, guid: 820ae5fd60a844d429ade6dca6b1164a,
+    type: 3}
+  m_PrefabInstance: {fileID: 176439241}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1347627113
 GameObject:
   m_ObjectHideFlags: 0
@@ -39621,11 +39634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf247def0fc6f9842aa2de2bc6ac6ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalCountdown: 0
-  timeText: {fileID: 475222765}
-  countdown: 0
-  disableTimer: 0
-  disableTimerObject: {fileID: 22550564}
 --- !u!1 &1617813540
 GameObject:
   m_ObjectHideFlags: 0
@@ -43178,6 +43186,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 751434574}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 818978552929974465, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1774353125}
     - targetCorrespondingSourceObject: {fileID: 5089045582057578609, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
         type: 3}
       insertIndex: -1
@@ -43205,6 +43217,29 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1774353122}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1774353124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 818978552929974465, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1774353122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1774353125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774353124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b7a840d5693be4aa3fd194e9ed1184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rps: {fileID: 404876739}
+  cup: {fileID: 887967558}
+  dart: {fileID: 4911379500764137188}
+  curtain: {fileID: 1341752119}
+  blackBox: {fileID: 1448594377}
 --- !u!137 &1774353126 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5594196344576863553, guid: 74c6b1326a3a32446ad7b240c0ca23f0,
@@ -43612,10 +43647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5efc02d8a1879b42b8b6e29dd17901f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectActive:
-  - {fileID: 367371818}
-  - {fileID: 1253277905}
-  - {fileID: 993664725}
 --- !u!114 &1844322061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43628,18 +43659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e5a6c0e75095f43b33a817b4478025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSet:
-  - {fileID: 1124655620}
-  - {fileID: 1000516946}
-  - {fileID: 296114044}
-  secondSet:
-  - {fileID: 367371818}
-  - {fileID: 1253277905}
-  - {fileID: 993664725}
-  WinnersQ: {fileID: 0}
-  lostxd: {fileID: 1556750466}
-  ButtonRetry: {fileID: 0}
-  comparisonDelay: 5
 --- !u!1 &1845343876
 GameObject:
   m_ObjectHideFlags: 0
@@ -44665,15 +44684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9813c68d7d6f44282ace8bd2d1fd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UseOptimizedControls: 0
-  m_LeftHandMesh: {fileID: 0}
-  m_RightHandMesh: {fileID: 0}
-  m_HandMeshMaterial: {fileID: 0}
-  m_DrawMeshes: 0
-  m_DebugDrawPrefab: {fileID: 0}
-  m_DebugDrawJoints: 0
-  m_VelocityPrefab: {fileID: 0}
-  m_VelocityType: 0
 --- !u!1 &1934425339
 GameObject:
   m_ObjectHideFlags: 0
@@ -52937,6 +52947,18 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 4911379500764137181}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4911379500764137188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6129791521589241298, guid: e139ec9dcacc3c04183017b6e2518403,
+    type: 3}
+  m_PrefabInstance: {fileID: 4911379500764137181}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91676312668faf84db2c57b3c80f52d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4958197445274526690
 GameObject:
   m_ObjectHideFlags: 0

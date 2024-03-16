@@ -23,6 +23,7 @@ public class CupMinigame : MonoBehaviour
     [Tooltip("Between successful games, speedIncrement will increase by this number")][SerializeField] private float betweenGameIncrement;
     [Tooltip("Between successful games, timesToSwitch will increase by this number")][SerializeField] private int betweenGameSwitch;
     [SerializeField] private bool debugStart;
+    public bool cupMinigameWon = false;
 
     void Start()
     {
@@ -174,6 +175,7 @@ public class CupMinigame : MonoBehaviour
         thumb.SetActive(true);
         // WHATEVA THA FUCK BEHAVIOUR WE WANT HERE
         ResetMinigame(true);
+        cupMinigameWon = true;
     }
 
     public void IncorrectCupPicked()

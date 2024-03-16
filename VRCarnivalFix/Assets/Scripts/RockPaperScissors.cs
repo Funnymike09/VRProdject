@@ -30,6 +30,8 @@ public class RockPaperScissors : MonoBehaviour
 
     public AudioSource winAudio;
 
+    public bool rpsMinigameWon = false;
+
     public void RPSInit() 
     {
         //gets a random value from the enum to be the ai's choice (this is kind of overly complex but i think its best way to do it)
@@ -105,6 +107,7 @@ public class RockPaperScissors : MonoBehaviour
         Instantiate(fingerPrefab, fingerSpawnPoint);
         winAudio.Play();
         particle.Play();
+        rpsMinigameWon = true;
     }
 
     public void LoseGame() 
