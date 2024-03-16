@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6388008587247224813}
   - component: {fileID: 4054521419506755984}
   - component: {fileID: 2395478364785488452}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MiddleL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 257
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -297,7 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4919391963193705523}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
