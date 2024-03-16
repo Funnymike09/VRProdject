@@ -49,9 +49,6 @@ public class BalloonBehaviour : MonoBehaviour
     void Update()
     {
         if (!Input.GetKeyDown(KeyCode.Space)) return;
-        Debug.Log("FINGER SPAWNED");
-        var finger = Instantiate(fingerPrefab, fingerSpawnPoint);
-        _winSound.Play();
-        particle.Play();
+        _popSound.Play();
     }
 }
