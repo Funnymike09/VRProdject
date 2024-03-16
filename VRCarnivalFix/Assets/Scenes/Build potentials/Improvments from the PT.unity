@@ -637,7 +637,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 5
+  m_ThrowVelocityScale: 7
   m_ThrowAngularVelocityScale: 0
   m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
@@ -15346,7 +15346,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 5
+  m_ThrowVelocityScale: 7
   m_ThrowAngularVelocityScale: 0
   m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
@@ -35119,7 +35119,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 5
+  m_ThrowVelocityScale: 7
   m_ThrowAngularVelocityScale: 0
   m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
@@ -36852,7 +36852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7729697}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -37850,7 +37850,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 5
+  m_ThrowVelocityScale: 7
   m_ThrowAngularVelocityScale: 0
   m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
@@ -38204,7 +38204,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 5
+  m_ThrowVelocityScale: 7
   m_ThrowAngularVelocityScale: 0
   m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
@@ -38893,7 +38893,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 5
+  m_ThrowVelocityScale: 7
   m_ThrowAngularVelocityScale: 0
   m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
@@ -43596,7 +43596,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 5
+  m_ThrowVelocityScale: 7
   m_ThrowAngularVelocityScale: 0
   m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
@@ -44905,7 +44905,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 5
+  m_ThrowVelocityScale: 7
   m_ThrowAngularVelocityScale: 0
   m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
@@ -53898,18 +53898,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6129791521589241298, guid: e139ec9dcacc3c04183017b6e2518403,
         type: 3}
+      propertyPath: dartMinigameWon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6129791521589241298, guid: e139ec9dcacc3c04183017b6e2518403,
+        type: 3}
       propertyPath: fingerSpawnPoint
       value: 
       objectReference: {fileID: 617332198}
     - target: {fileID: 6161906901171728623, guid: e139ec9dcacc3c04183017b6e2518403,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1594099
+      value: -1.16
       objectReference: {fileID: 0}
     - target: {fileID: 6161906901171728623, guid: e139ec9dcacc3c04183017b6e2518403,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3381837
+      value: 1.828
       objectReference: {fileID: 0}
     - target: {fileID: 6161906901171728623, guid: e139ec9dcacc3c04183017b6e2518403,
         type: 3}
@@ -58514,7 +58519,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 5
+  m_ThrowVelocityScale: 7
   m_ThrowAngularVelocityScale: 0
   m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
