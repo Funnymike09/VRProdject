@@ -39,6 +39,7 @@ public class BalloonBehaviour : MonoBehaviour
                 particle.Play();
             }
             Destroy(gameObject);
+            
         }
     }
     
